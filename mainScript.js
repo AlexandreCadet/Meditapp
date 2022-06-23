@@ -14,12 +14,12 @@ let time;
 window.onload=function(){
      
 const goButton = document.getElementById("buttonOk").addEventListener("click",function() {setTime()})
-const pickMusicWindow = document.getElementById("pickMusic")
+const pickMusicWindow = document.getElementById("slide")
 const counterWindow = document.getElementById("counter")
 
 
 
-blockScrolling()
+// blockScrolling()
 
 
 

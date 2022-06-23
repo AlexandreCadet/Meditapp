@@ -114,7 +114,7 @@ border-radius: 10%;
     align-items: center;
 }
 
-#pickMusic{
+.sliderPickMusic{
     
     border-radius: 50%;
     display: flex;

@@ -19,7 +19,7 @@ const counterWindow = document.getElementById("counter")
 
 
 
-// blockScrolling()
+blockScrolling()
 
 
 

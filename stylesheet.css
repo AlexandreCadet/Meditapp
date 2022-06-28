@@ -99,8 +99,7 @@ border-radius: 10%;
 
 .separation-line{
     
-    background-color : black;
-    opacity: 0.50;
+    background-color : #AAD7EF;
     width: 80%;
     border-radius: 50%;
     height: 5px;
@@ -110,28 +109,105 @@ border-radius: 10%;
 
 .container{
     height: 100vh;
-    display: flex;
-    align-items: center;
-}
-
-.sliderPickMusic{
-    
-    border-radius: 50%;
+    width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content:center;
     align-items: center;
-    width: 360px;
-    height: 360px;
-    background-color: #AAD7EF;
-
-    transition: 1s;
     
-
-    font-family: 'Miniver', cursive;
-    font-size: 25px;
-    margin-top: 1%;
 }
+
+.container h1{
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.carousel{
+
+    background-color : #AAD7EF;
+    padding: 1%;
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    border-radius: 10%;
+    
+}
+
+.carousel-item{
+    height: 250px;
+    width: 100%;
+    display: none;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0.7;
+    border-radius: 10%;
+  
+}
+
+.carousel-item:hover{
+    opacity: 1;
+    transition: 0.4s;
+}
+
+.carousel-item-selected{
+display: block;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.carousel-item h2{
+ font-family: 'Miniver', cursive;
+ font-size: 30px;
+}
+.carousel-nav{
+    width: 100%;
+    padding-top: 2%;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.carousel-button{
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    background-color: rgba(245, 39, 39, 0.5);
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+
+}
+
+
+.carousel-button-selected{
+    background-color: rgba(245, 39, 39, 0.8);
+}
+
+
+#himalaya{
+    background-image: url(/Images/himalaya.png);
+    background-position: 28%;
+    max-width: 100%;
+    
+}
+
+#rain{
+    background-image: url(/Images/rain.jpg);
+    background-position: 28%;
+    max-width: 100%;
+}
+
+#instrumentals{
+    background-image: url(/Images/guitar.jpg);
+    background-position: 28%;
+    max-width: 100%;
+}
+
+#himalaya h2:hover,#instrumentals h2:hover, #rain h2:hover,#noSound h2:hover{
+    color: white;
+    transition: 0.3s;
+}
+
 
 
 #counter{

@@ -1,20 +1,14 @@
 
 
-
 let time;
-
-
-
-
-
-
+let userSound;
 
 
 // function to load the full html page BEFORE the javascript file
 window.onload=function(){
      
 const goButton = document.getElementById("buttonOk").addEventListener("click",function() {setTime()})
-const pickMusicWindow = document.getElementById("slide")
+const carouselWindow = document.querySelector(".carousel")
 const counterWindow = document.getElementById("counter")
 
 
@@ -53,7 +47,7 @@ const setTime =()=>{
         time = document.getElementById("inputTime").value
         console.log("userTime : "+ time)
         counterFunction()
-        scrollIntoNextElement(pickMusicWindow)
+        scrollIntoNextElement(carouselWindow)
 }
 
 //makes the Timer window slowly disappear
@@ -102,8 +96,60 @@ let counterFunction = async () => {
 
        
     
+//CAROUSEL
 
  
+//CAROUSEL BUTTON NAVIGATION
+
+//array from buttons
+const buttonArray = Array.from(document.querySelectorAll(".carousel-button"))
+
+console.log("buttonArray :"+ buttonArray)
+
+//array from items
+
+const itemArray = Array.from(document.querySelectorAll(".carousel-item"))
+
+
+//remove actual selection and replace by user selection
+const changeSelectionCarousel = (n) => {
+
+        for(i=0;i<buttonArray.length;i++){
+        buttonArray[i].classList.remove("carousel-button-selected")
+        itemArray[i].classList.remove("carousel-item-selected")
+         }
+
+
+        console.log(n)
+        buttonArray[n].classList.add("carousel-button-selected")
+        itemArray[n].classList.add("carousel-item-selected")
+
+
+        }
+
+
+//add EventListener on buttons
+
+buttonArray.forEach(function callback(button, i){
+        button.addEventListener("click", function(){
+                changeSelectionCarousel(i)}) 
+        
+                console.log("buttonArray index : " + i)
+})
+
+
+//add Eventlistener on images and scroll user into next window
+itemArray.forEach(function callback(item, i){
+        item.addEventListener("click", function(){
+        userSound = itemArray[i]
+        console.log("user sound selection : " + userSound)
+        scrollIntoNextElement(counterWindow)}); 
+        
+})
+
+
+
+
 
 
 async function userMeditationTimer () {

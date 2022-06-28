@@ -20,12 +20,12 @@
         </div>
         <div id="mainPage" style="display: flex; flex-direction:column; justify-content: center; align-items: center;">
             <div id="backgroundTimer">
-                <div id="timer">
+                <div class="blue-circle timer">
                     <h2>Choose your time</h2>
                     <div id="dropdownTimer">
                         <input type="number" id="inputTime" value="5" min="1" max="120" ></input>
                         
-                        <button id="buttonOk">Go !</button>
+                        <button id="okButton">Go !</button>
             
                     </div>
                 </div>
@@ -51,9 +51,13 @@
             </div>
             
             <div class ="separation-line"></div>
-            <div class="container">
-                <div id="counter">
-                    <h1 id="counterNumber">2</h1>
+            <div class="container" id="counterWindow">
+                <div class="blue-circle" id="readyMessageCircle">
+                    <h1>Ready ?</h1>
+                    <button id="goButton">Go !</button>
+                </div>
+                <div class="blue-circle not-displayed" id="counterCircle">
+                    <h1 id="counterNumber">5</h1>
                 </div>
             </div>
             </div>

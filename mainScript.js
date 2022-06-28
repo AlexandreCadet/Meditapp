@@ -7,10 +7,11 @@ let userSound;
 // function to load the full html page BEFORE the javascript file
 window.onload=function(){
      
-const goButton = document.getElementById("buttonOk").addEventListener("click",function() {setTime()})
+const goButton = document.getElementById("okButton").addEventListener("click",function() {setTime()})
 const carouselWindow = document.querySelector(".carousel")
-const counterWindow = document.getElementById("counter")
+const counterWindow = document.getElementById("counterWindow")
 
+const startButton = document.getElementById("goButton").addEventListener("click", function(){startSession()})
 
 
 // blockScrolling()
@@ -96,8 +97,9 @@ let counterFunction = async () => {
 
        
     
-//CAROUSEL
-
+//-------------------------------------------------------------------------------------//
+//----------------------!!!-------------CAROUSEL-------------!!!-----------------------//
+//-------------------------------------------------------------------------------------//
  
 //CAROUSEL BUTTON NAVIGATION
 
@@ -148,6 +150,26 @@ itemArray.forEach(function callback(item, i){
 })
 
 
+//-------------------------------------------------------------------------------------//
+//-----------------------!!!----------SECTION TIMER----------!!!-----------------------//
+//-------------------------------------------------------------------------------------//
+
+
+let readyMessageCircle = document.getElementById("readyMessageCircle")
+let counterCircle = document.getElementById("counterCircle")
+
+//when user click on Go button, remove first blue circle and start the timer
+const startSession = () => {
+
+
+readyMessageCircle.classList.add("not-displayed")
+counterCircle.classList.remove("not-displayed")
+
+
+counterFunction()
+
+
+}
 
 
 

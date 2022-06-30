@@ -1,6 +1,6 @@
 
 
-let time;
+let userSelectedTime;
 let userSound;
 
 
@@ -45,9 +45,8 @@ element.scrollIntoView({behavior:"smooth", block:"center"})
 
 //get the time from user input
 const setTime =()=>{
-        time = document.getElementById("inputTime").value
-        console.log("userTime : "+ time)
-        counterFunction()
+        userSelectedTime = document.getElementById("inputTime").value
+        console.log("userTime : "+ userSelectedTime)
         scrollIntoNextElement(carouselWindow)
 }
 
@@ -162,8 +161,8 @@ let counterCircle = document.getElementById("counterCircle")
 const startSession = () => {
 
 
-readyMessageCircle.classList.add("not-displayed")
-counterCircle.classList.remove("not-displayed")
+readyMessageCircle.classList.add("hidden")
+counterCircle.classList.remove("hidden")
 
 
 counterFunction()

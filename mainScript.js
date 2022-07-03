@@ -50,48 +50,10 @@ const setTime =()=>{
         scrollIntoNextElement(carouselWindow)
 }
 
-//makes the Timer window slowly disappear
-// const changeWindow =()=>{
-
-//         console.log("changeWindow function")
-//         document.getElementById("timer").style.cssText = "opacity : 0; transition-duration : 2.5s"
-//         counterFunction()     
-// }
 
 
-//countdown window until 0
-let counterFunction = async () => {
-
-        
-        let c = document.getElementById("counterNumber")
-        console.log("counter : " + c.innerHTML)
-
-        
-                      
-        
-         //every second, decrease c, and allow scrolling back after end of the timer
-
-        return new Promise((resolve) => {
-
-                let decreaseTimer = () =>{
-                if(c.innerHTML > 0){
-                        c.innerHTML--;
-                        console.log("counter : " + c.innerHTML);
-                }}
-
-                if(c.innerHTML === 0){
-                        resolve("Done !")
-                        // allowScrolling()
-                }
 
 
-                setInterval(decreaseTimer,1000)
-                
-
-        })
-       
-
-}
 
 
        
@@ -156,6 +118,28 @@ itemArray.forEach(function callback(item, i){
 
 let readyMessageCircle = document.getElementById("readyMessageCircle")
 let counterCircle = document.getElementById("counterCircle")
+let finalTimer = document.getElementById("finalTimer")
+let c = document.getElementById("countdownNumber")
+
+
+
+
+//countdown window until 0
+let countdownFunction = () => {
+        
+        var interval = setInterval(countdown,1000)
+
+        function countdown(){
+                c.innerHTML --;
+                console.log("countdown : " + c.innerHTML)
+                if(c.innerHTML == 0){
+                        clearInterval(interval)
+                        changeWindow()
+                }
+                
+        }
+}
+
 
 //when user click on Go button, remove first blue circle and start the timer
 const startSession = () => {
@@ -165,21 +149,27 @@ readyMessageCircle.classList.add("hidden")
 counterCircle.classList.remove("hidden")
 
 
-counterFunction()
+countdownFunction()
 
 
 }
 
+//makes the Timer window slowly disappear and final timer appears
+const changeWindow =()=>{
+
+        console.log("changeWindow function")
+        counterCircle.style.cssText = "opacity : 0; transition-duration : 2.5s"
+
+        setTimeout(finalTimerWindow, 2500)
+
+        function finalTimerWindow(){
+                console.log("Final Timer Window")
+                counterCircle.classList.add("hidden")
+                finalTimer.classList.remove("hidden")
+        }
 
 
-
-async function userMeditationTimer () {
-        let result = await counterFunction()
-        console.log("counterFunction finished")
-        
- }
-
-
+}
 
 }    
 

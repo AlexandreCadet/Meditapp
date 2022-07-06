@@ -1,6 +1,6 @@
 
 
-let userSelectedTime;
+let userSelectedTime = 5;
 let userSound;
 
 
@@ -12,6 +12,12 @@ const carouselWindow = document.querySelector(".carousel")
 const counterWindow = document.getElementById("counterWindow")
 
 const startButton = document.getElementById("goButton").addEventListener("click", function(){startSession()})
+
+
+//seconds of the timer
+let minutes = document.getElementById("userMinutes");
+let seconds = document.getElementById("userSeconds");
+
 
 
 // blockScrolling()
@@ -166,10 +172,47 @@ const changeWindow =()=>{
                 console.log("Final Timer Window")
                 counterCircle.classList.add("hidden")
                 finalTimer.classList.remove("hidden")
+                meditationTimer()
         }
 
 
 }
+
+
+
+
+const meditationTimer = () =>{
+
+        minutes.innerText = userSelectedTime -1;
+       var interval = setInterval(decreaseTimer,1000)
+
+
+       function decreaseTimer(){
+        seconds.innerText --;
+
+        if(seconds.innerText == 0){
+        seconds.innerText += 59
+        minutes.innerText --;
+        console.log("seconds = 0 !")
+       }
+        if(minutes.innerText < 0){
+                clearInterval(interval)
+                console.log("timer finished")
+                document.getElementsByClassName("timer").classList.add("hidden")
+                document.getElementsByClassName("finalMessage").classList.remove("hidden")
+        }
+
+}
+}
+
+
+
+
+//faire une fonction pour afficher countdown comme ceci :  9 : 59
+//le chiffre de gauche est le userSelectedTime - 1, à droite sont les secondes
+//chaque 60 secondes écouléees, userSelectedTime --; et seconds += 59 ( reset les secondes )
+//if userSelectedTime < 0, arrêt du timer.
+
 
 }    
 

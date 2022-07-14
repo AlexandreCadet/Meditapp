@@ -18,10 +18,33 @@
         </div>
         <div id="backgroundImage">            
         </div>
-        <div id="mainPage" style="display: flex; flex-direction:column; justify-content: center; align-items: center;">
-            <div id="backgroundTimer">
-                <div class="blue-circle timer">
-                    <h2>Choose your time</h2>
+
+        <div class="mainPage">
+            <div id="pickTime">
+                <div class="text">
+                    <h2>Pick your time</h1>
+                </div>
+                <div class="container">
+                    <input type="number" id="inputTime" value="5" min="1" max="120" ></input>        
+                    <button id="okButton">go !</button>
+                </div>
+                
+            </div>
+            <!-- <div id="pickMusic">
+                <div class="text">
+                    <h2>Pick your meditative environnement</h1>
+                </div>
+                <div class="container">
+                    
+                </div>
+            </div>
+            <div id="readyMessage"></div>
+            <div id="countdown"></div>
+            <div id="finalTimer"></div> -->
+        </div>
+            <!-- <div class="backgroundT" id="backgroundTimer">
+                <h1 style="font-size: 35px">Pick your time</h1>
+                <div class="blue-circle" id="firstCircle">
                     <div id="dropdownTimer">
                         <input type="number" id="inputTime" value="5" min="1" max="120" ></input>
                         
@@ -29,10 +52,10 @@
             
                     </div>
                 </div>
+
             </div>
-            
-            <div class ="separation-line"></div>
-            <div class="container">
+
+            <div class="container hidden" id="carouselContainer">
                 <h1>Pick your meditative environnement</h1>
                 <div class="carousel">
                     <div class="carousel-item carousel-item-selected" id="himalaya">
@@ -49,10 +72,11 @@
                         <span class="carousel-button"></span>
                 </div>
             </div>
+        
+          
             
-            <div class ="separation-line"></div>
-            <div class="container" id="counterWindow">
-                <div class="blue-circle" id="readyMessageCircle">
+            <div class="container hidden" id="counterWindow">
+                <div class="blue-circle hidden" id="readyMessageCircle">
                     <h1>Ready ?</h1>
                     <button id="goButton">Go !</button>
                 </div>
@@ -64,9 +88,8 @@
                     <h1 class="finalMessage hidden">Vous avez terminé votre session !</h1>
                 </div>
             </div>
-            </div>
         </div>
-    </div>
+    </div> -->
 
     </body>
     <footer>

@@ -8,6 +8,8 @@ let userSound;
 window.onload=function(){
      
 const goButton = document.getElementById("okButton").addEventListener("click",function() {setTime()})
+const firstCircle = document.getElementById("backgroundTimer")
+const carouselContainer = document.getElementById("carouselContainer")
 const carouselWindow = document.querySelector(".carousel")
 const counterWindow = document.getElementById("counterWindow")
 
@@ -28,22 +30,20 @@ let seconds = document.getElementById("userSeconds");
 
 
 
-//--------------------SCROLLING FUNCTIONS-------------------//
-
-//block or allow user to scroll, following every step.
-function allowScrolling(){
-        document.body.classList.remove("stop-scrolling")
-}
-
-function blockScrolling(){
-        document.body.classList.add("stop-scrolling")
-}
+//--------------------TRANSITION TO NEXT ELEMENT-------------------//
 
 
-// automatic scroll to the specified element
-function scrollIntoNextElement(element){
 
-element.scrollIntoView({behavior:"smooth", block:"center"})
+function transitionToNextElement(element1, element2){
+
+element1.classList.add("transitionedOut")
+setTimeout(() => {
+element1.style.display = "none"
+element2.classList.add("transitionedIn")
+element2.classList.remove("hidden")
+},1000)
+
+
 }
 
 
@@ -53,7 +53,8 @@ element.scrollIntoView({behavior:"smooth", block:"center"})
 const setTime =()=>{
         userSelectedTime = document.getElementById("inputTime").value
         console.log("userTime : "+ userSelectedTime)
-        scrollIntoNextElement(carouselWindow)
+        
+        transitionToNextElement(firstCircle,carouselContainer)
 }
 
 
@@ -112,7 +113,7 @@ itemArray.forEach(function callback(item, i){
         item.addEventListener("click", function(){
         userSound = itemArray[i]
         console.log("user sound selection : " + userSound)
-        scrollIntoNextElement(counterWindow)}); 
+        transitionToNextElement(counterWindow)}); 
         
 })
 

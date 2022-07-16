@@ -1,12 +1,29 @@
 
 
+
 let userSelectedTime = 5;
 let userSound;
 
 
 // function to load the full html page BEFORE the javascript file
 window.onload=function(){
-     
+
+        
+
+ //get the time from user input
+const setTime =()=>{
+        userSelectedTime = document.getElementById("inputTime").value
+
+        if(userSelectedTime === null || !/^[0-9]+$/.test(userSelectedTime) ){
+                alert("Please enter a numeric value ( 1 to 120 )")
+              }
+        console.log("userTime : "+ userSelectedTime)
+        
+        transitionToNextElement(firstCircle,carouselContainer)
+}
+
+
+
 const goButton = document.getElementById("okButton").addEventListener("click",function() {setTime()})
 const firstCircle = document.getElementById("backgroundTimer")
 const carouselContainer = document.getElementById("carouselContainer")
@@ -45,21 +62,6 @@ element2.classList.remove("hidden")
 
 
 }
-
-
-
-
-//get the time from user input
-const setTime =()=>{
-        userSelectedTime = document.getElementById("inputTime").value
-        console.log("userTime : "+ userSelectedTime)
-        
-        transitionToNextElement(firstCircle,carouselContainer)
-}
-
-
-
-
 
 
 

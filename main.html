@@ -27,7 +27,7 @@
                 <div class="container">
                     <div id="inputUser">
 
-                        <input type="number" id="inputTime" value="5" min="1" max="120" ></input>
+                        <input type="number" id="inputTime" value="5"  min="1" max="120" ></input>
                         <p>minutes</p>
                     </div>        
                         <button id="goButton">go !</button>
@@ -66,9 +66,15 @@
                 <div class="text">
                     <h2>Close your eyes, and let go</h2>
                 </div>
-                <div id ="finalTimerContainer">
-                    <div class="timer" id="timerArea"><span id="userMinutes"></span><h1> : </h1><span id="userSeconds">59</span></div>
+                    <div id ="finalTimerContainer">
+                        <div class="timer" id="timerArea"><span id="userMinutes"></span><h2> : </h2><span id="userSeconds"></span></div>
+                    </div>
                 </div>
+                <div id="finalMessageDiv" class="text">
+                    <h2>Your session has finished. Thanks for taking time for yourself</h2>
+                    <div class="container">
+                        <h2 id="goAgainMessage">go again !</h2>
+                    </div>
             </div>
         </div>
 

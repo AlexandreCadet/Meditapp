@@ -1,7 +1,7 @@
 
 
 
-let userSelectedTime = 5;
+let userSelectedTime;
 let userSound;
 
 
@@ -25,8 +25,10 @@ const setTime =()=>{
 const goButton = document.getElementById("goButton").addEventListener("click",function() {setTime()})
 const pickTime = document.getElementById("pickTime")
 const pickMusic = document.getElementById("pickMusic")
-const carouselWindow = document.querySelector(".carousel")
+const finalMessageDiv = document.getElementById("finalMessageDiv")
 const counterWindow = document.getElementById("counterWindow")
+
+const goAgainMessage = document.getElementById("goAgainMessage").addEventListener("click",function(){transitionToNextElement(finalMessageDiv,pickTime)})
 
 // const startButton = document.getElementById("goButton").addEventListener("click", function(){startSession()})
 
@@ -145,6 +147,12 @@ let countdownFunction = () => {
                 if(countdownNumber.innerHTML == 0){
                         clearInterval(interval)
                         transitionToNextElement(countdown,finalTimer)
+
+                        //re initialize countdown to 5
+                        setTimeout(function(){
+                                countdownNumber.innerHTML = 5;
+                        },2000)
+                        
                 }
                 
         }
@@ -158,24 +166,38 @@ let countdownFunction = () => {
 
 const meditationTimer = () =>{
 
-        minutes.innerText = userSelectedTime -1;
-       var interval = setInterval(decreaseTimer,1000)
+        minutes.innerText = userSelectedTime;
+        seconds.innerText = 0
+        var interval = setInterval(decreaseTimer,1000)
 
 
-       function decreaseTimer(){
-        seconds.innerText --;
+        function decreaseTimer(){
 
-        if(seconds.innerText == 0){
-        seconds.innerText += 59
-        minutes.innerText --;
-        console.log("seconds = 0 !")
-       }
-        if(minutes.innerText < 0){
-                clearInterval(interval)
-                console.log("timer finished")
-                document.getElementsByClassName("timer").classList.add("hidden")
-                document.getElementsByClassName("finalMessage").classList.remove("hidden")
-        }
+                var timerHasFinished = false;
+
+                if(minutes.innerText == 0 && seconds.innerText == 0){
+                        clearInterval(interval)
+                        console.log("timer finished")
+                        timerHasFinished = true;
+                        
+                } else if(seconds.innerText == 0 && minutes.innerText > 0){
+                        seconds.innerText += 60
+                        minutes.innerText --;
+                        console.log("seconds = 0 !")
+                }
+
+                if(timerHasFinished){
+                        transitionToNextElement(finalTimer,finalMessageDiv)
+                        timerHasFinished = false;
+                }else{
+                        seconds.innerText --;
+                        console.log("seconds = " + seconds.innerText);
+                }
+                
+
+
+
+
 
 }
 }

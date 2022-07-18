@@ -65,7 +65,6 @@ h4{
 
 .container{
     background-color: #AAD7EF;
-    padding: 2%;
     width: 270px;
     display: flex;
     flex-direction: column;
@@ -160,6 +159,9 @@ h4{
     align-items: center;
 }
 
+#countdownNumber {
+    font-size: 35px;
+}
 #finalTimer{
     display: none;
     flex-direction: column;
@@ -177,30 +179,57 @@ h4{
         align-items: center;
         border-radius: 10%;
         height: 220px;
+        
 
     
 }
 
 .timer{
+
         display: flex;
         justify-content: space-around;
         align-items: center;
-        width: 100%;
+        background-color: rgba(250,128,114);
+        border-radius:10%;
+        width: 50%;
+        height: 40%;
+        padding-left: -10px;
+        padding-right: -10px;
 }
 
 #userMinutes{
 
-        font-family: 'Miniver';
-        font-weight: bold;
-        font-size: 150%;
+    font-family: 'Miniver';
+    font-weight: bold;
+    font-size: 150%;
+    padding-left: 5%;
 
 }
 #userSeconds{
     font-family: 'Miniver';
     font-weight: bold;
     font-size: 150%;
+    padding-right: 5%;
 }
 
+#finalMessageDiv{
+display: none;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+#goAgainMessage{
+    text-align: center;
+    transition: 0.5s;
+}
+
+#goAgainMessage:hover{
+    transition: 0.5s;
+    cursor: pointer;
+    opacity: 0.5;
+    font-size: larger;
+}
 
 .transitionedOut {
     animation: moveOut 1s ease-in-out;

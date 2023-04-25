@@ -22,11 +22,10 @@ const setTime =()=>{
 
 
 
-const goButton = document.getElementById("goButton").addEventListener("click",function() {setTime()})
+document.getElementById("goButton").addEventListener("click",function() {setTime()})
 const pickTime = document.getElementById("pickTime")
 const pickMusic = document.getElementById("pickMusic")
 const finalMessageDiv = document.getElementById("finalMessageDiv")
-const counterWindow = document.getElementById("counterWindow")
 
 const goAgainMessage = document.getElementById("goAgainMessage").addEventListener("click",function(){transitionToNextElement(finalMessageDiv,pickTime)})
 
@@ -51,14 +50,14 @@ element2.style.animation = "moveIn 1s ease-in-out"
 element2.style.display = "flex"
 },1000)
 
-//also start the coundown 
+//also start the countdown 
 if(element2 == countdown){
-setTimeout(countdownFunction, 2000)
+setTimeout(countdownFunction, 1000)
         
 }
 
 if(element2 == finalTimer){
-        setTimeout(meditationTimer, 2000)  
+        setTimeout(meditationTimer, 1000)  
 }
 }
 
@@ -148,10 +147,6 @@ let countdownFunction = () => {
                         clearInterval(interval)
                         transitionToNextElement(countdown,finalTimer)
 
-                        //re initialize countdown to 5
-                        setTimeout(function(){
-                                countdownNumber.innerHTML = 5;
-                        },2000)
                         
                 }
                 

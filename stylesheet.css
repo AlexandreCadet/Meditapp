@@ -145,12 +145,7 @@ h4{
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
 }
 
-#pickMusic {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+
 
 #countdown {
     display: none;

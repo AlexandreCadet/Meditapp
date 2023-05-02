@@ -4,6 +4,7 @@
 let userSelectedTime;
 let userSound;
 
+const alarm = new Audio("sound\mixkit-warning-alarm-buzzer-991.wav")
 
 // function to load the full html page BEFORE the javascript file
 window.onload=function(){
@@ -17,19 +18,18 @@ const setTime =()=>{
               }
         console.log("userTime : "+ userSelectedTime)
         
-        transitionToNextElement(pickTime,pickMusic)
+        transitionToNextElement(pickTime,countdown)
 }
 
 
 
 document.getElementById("goButton").addEventListener("click",function() {setTime()})
 const pickTime = document.getElementById("pickTime")
-const pickMusic = document.getElementById("pickMusic")
 const finalMessageDiv = document.getElementById("finalMessageDiv")
 
 const goAgainMessage = document.getElementById("goAgainMessage").addEventListener("click",function(){transitionToNextElement(finalMessageDiv,pickTime)})
 
-// const startButton = document.getElementById("goButton").addEventListener("click", function(){startSession()})
+
 
 
 //seconds of the timer
@@ -57,70 +57,11 @@ setTimeout(countdownFunction, 1000)
 }
 
 if(element2 == finalTimer){
-        setTimeout(meditationTimer, 1000)  
+        setTimeout(meditationTimer, 2000)  
 }
 }
 
 
-
-       
-    
-//-------------------------------------------------------------------------------------//
-//----------------------!!!-------------CAROUSEL-------------!!!-----------------------//
-//-------------------------------------------------------------------------------------//
- 
-//CAROUSEL BUTTON NAVIGATION
-
-
-//array from buttons
-const buttonArray = Array.from(document.querySelectorAll(".carousel-button"))
-
-console.log("buttonArray :"+ buttonArray)
-
-//array from items
-
-const itemArray = Array.from(document.querySelectorAll(".carousel-item"))
-
-
-//remove actual selection and replace by user selection
-const changeSelectionCarousel = (n) => {
-
-        for(i=0;i<buttonArray.length;i++){
-        buttonArray[i].classList.remove("carousel-button-selected")
-        itemArray[i].classList.remove("carousel-item-selected")
-         }
-
-
-        console.log(n)
-        buttonArray[n].classList.add("carousel-button-selected")
-        itemArray[n].classList.add("carousel-item-selected")
-
-
-        }
-
-
-//add EventListener on buttons
-
-buttonArray.forEach(function callback(button, i){
-
-        button.addEventListener("click", function(){
-                changeSelectionCarousel(i)}) 
-        
-                console.log("buttonArray index : " + i)
-})
-
-
-//add Eventlistener on images
-
-itemArray.forEach(function callback(item, i){
-        item.addEventListener("click", function(){
-        userSound = itemArray[i]
-        console.log("user sound selection : " + userSound)
-
-//when sound is chosen by user, go to the next window
-        transitionToNextElement(pickMusic,countdown)}); 
-        
-})
 
 
 //-------------------------------------------------------------------------------------//
@@ -182,8 +123,14 @@ const meditationTimer = () =>{
                 }
 
                 if(timerHasFinished){
-                        transitionToNextElement(finalTimer,finalMessageDiv)
-                        timerHasFinished = false;
+
+                        alarm.play();
+
+                        setTimeout(
+                                transitionToNextElement(finalTimer,finalMessageDiv),
+                                timerHasFinished = false
+                        ,8000)
+                        
                 }else{
                         seconds.innerText --;
                         console.log("seconds = " + seconds.innerText);
